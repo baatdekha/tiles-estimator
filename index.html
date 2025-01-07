@@ -23,9 +23,25 @@
       height: 100vh;
     }
 
-    img {
+    .image-cover {
+      background: #851D28;
       width: 100vw;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
+    img {
+      width: 40vw;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      img {
+        width: 70vw;
+
+      }
     }
 
     .container {
@@ -78,7 +94,9 @@
 </head>
 
 <body>
-  <img src="tiles.png" alt="Tiles Calculator banner">
+  <div class="image-cover">
+    <img src="tiles.jpg" alt="Tiles Calculator banner">
+  </div>
   <div class="container">
     <h1>Tiles Estimator</h1>
 
@@ -111,13 +129,6 @@
       const length = parseFloat(document.getElementById("length").value);
       const height = parseFloat(document.getElementById("height").value);
       const size = parseFloat(document.getElementById("size").value);
-      const a = 12
-      const b = 8.33
-      const c = 10
-      const d = 6
-      const e = 8
-      const f = 4
-      const g = 2
 
       if (isNaN(length) || isNaN(height) || length <= 0 || height <= 0) {
         alert("Please enter valid positive numbers for length and height.");
@@ -126,12 +137,9 @@
 
       const result = length * height;
       const result1 = result / size;
-      const result2 = (result1 / a)(result1 / b)(result1 / c)(result1 / d)(result1 / e)(result1 / f)(result1 / g);
-
 
       document.getElementById("result").textContent = result.toFixed(2);
       document.getElementById("result1").textContent = result1.toFixed(2);
-      document.getElementById("result2").textContent = result2.toFixed(2);
     }
   </script>
 </body>
